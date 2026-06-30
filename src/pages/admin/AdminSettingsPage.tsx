@@ -20,13 +20,13 @@ export default function AdminSettingsPage() {
     e.preventDefault();
     if (!formData) return;
     setIsSaving(true);
-    
+
     try {
       // Assuming a singleton pattern with a fixed ID 'siteSettings'
       const docId = 'siteSettings';
       await client.createIfNotExists({ _id: docId, _type: 'siteSettings', ...formData });
       await client.patch(docId).set(formData).commit();
-      
+
       setSaved(true);
       setTimeout(() => setSaved(false), 3000);
     } catch (error) {

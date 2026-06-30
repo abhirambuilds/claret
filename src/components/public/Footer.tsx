@@ -53,10 +53,7 @@ export default function Footer() {
                 <Link to="/" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Home</Link>
               </li>
               <li>
-                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 11th Books</Link>
-              </li>
-              <li>
-                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 12th Books</Link>
+                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 11th & 12th Books</Link>
               </li>
             </ul>
           </div>

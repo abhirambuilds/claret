@@ -26,10 +26,10 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo & Brand */}
           <Link to="/" className="flex items-center gap-3 group" id="nav-logo">
-            <img 
-              src={logoImg} 
-              className="w-10 h-10 sm:w-11 sm:h-11 object-cover rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300" 
-              alt={`${settings.publicationName || 'Claret'} Logo`} 
+            <img
+              src={logoImg}
+              className="w-10 h-10 sm:w-11 sm:h-11 object-cover rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300"
+              alt={`${settings.publicationName || 'Claret'} Logo`}
             />
             <div className="flex flex-col">
               <span className="text-lg sm:text-xl font-bold text-white font-display tracking-tight leading-tight group-hover:text-blue-200 transition-colors duration-200">
@@ -165,14 +165,6 @@ export default function Navbar() {
               className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
             >
               Author
-            </Link>
-            <Link
-              to="/admin/login"
-              onClick={() => setIsMenuOpen(false)}
-              className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
-            >
-              <User className="w-4 h-4 text-white/70" />
-              <span>Admin Portal</span>
             </Link>
             <div className="pt-2 pb-1">
               <Link

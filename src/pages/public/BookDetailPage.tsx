@@ -124,13 +124,13 @@ export default function BookDetailPage() {
           {/* Left: Book cover and interactive gallery */}
           <div className="lg:col-span-3">
             <div className="sticky top-24">
-              <div className="aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl border border-gray-100 bg-white flex items-center justify-center p-4 relative group cursor-zoom-in">
+              <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-200 bg-white flex items-center justify-center p-4 sm:p-6 relative group cursor-zoom-in">
                 {book.coverImage ? (
-                  <div className="w-full h-full rounded-2xl overflow-hidden shadow-md bg-gray-50/50 flex items-center justify-center relative">
+                  <div className="w-full flex items-center justify-center relative">
                     <img 
-                      src={typeof (allImages[activeIndex] || book.coverImage) === 'string' ? (allImages[activeIndex] || book.coverImage) : urlFor(allImages[activeIndex] || book.coverImage).width(800).url()} 
+                      src={typeof (allImages[activeIndex] || book.coverImage) === 'string' ? (allImages[activeIndex] || book.coverImage) : urlFor(allImages[activeIndex] || book.coverImage).width(1200).url()} 
                       alt={book.title} 
-                      className="w-full h-full object-contain animate-fade-in cursor-pointer select-none" 
+                      className="w-full h-auto max-h-[70vh] object-contain animate-fade-in cursor-pointer select-none rounded-lg border border-gray-100 shadow-sm bg-white" 
                       onClick={() => setIsLightboxOpen(true)}
                     />
                     <div 

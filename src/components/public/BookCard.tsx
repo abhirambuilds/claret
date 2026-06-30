@@ -61,42 +61,41 @@ export default function BookCard({ book }: BookCardProps) {
 
   return (
     <div
-      className="group bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-gray-200 transition-all duration-300 flex flex-col h-full overflow-hidden"
+      className="group bg-white rounded-3xl border border-gray-100 shadow-md hover:shadow-2xl hover:border-gray-200 transition-all duration-300 flex flex-col h-full overflow-hidden relative"
       id={`book-card-${book.id}`}
     >
       {/* Subject Header & Icon */}
-      <div className="p-5 pb-0 flex items-center justify-between">
-        <div className={`w-10 h-10 rounded-2xl flex items-center justify-center ${badgeColor}`}>
+      {/* Subject Header & Icon (Floating) */}
+      <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10 pointer-events-none">
+        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shadow-md backdrop-blur-md bg-white/90 ${checkColor}`}>
           <IconComponent className="w-5 h-5" />
         </div>
-        <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
-          book.classType === 'Class 10'
-            ? 'bg-blue-50 text-blue-600 border border-blue-100'
-            : 'bg-indigo-50 text-indigo-600 border border-indigo-100'
+        <span className={`px-3 py-1 text-xs font-bold rounded-full shadow-md backdrop-blur-md bg-white/90 ${
+          book.classType === 'Class 10' ? 'text-blue-600' : 'text-indigo-600'
         }`}>
           {book.classType}
         </span>
       </div>
 
-      {/* Book Cover Container with 3D Float */}
-      <div className="relative aspect-[4/3] bg-gradient-to-b from-white to-gray-50 flex items-center justify-center overflow-hidden">
-        <Link to={`/book/${book.id}`} className="w-full h-full flex items-center justify-center">
+      {/* Book Cover Container */}
+      <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] overflow-hidden bg-gray-100 flex-shrink-0">
+        <Link to={`/book/${book.id}`} className="w-full h-full block">
           {book.coverImage ? (
-            <div className="w-[110px] h-[160px] rounded-lg overflow-hidden shadow-lg group-hover:scale-105 group-hover:shadow-xl transition-all duration-300 bg-white">
-              <img
-                src={typeof book.coverImage === 'string' ? book.coverImage : urlFor(book.coverImage).width(300).url()}
-                alt={book.title}
-                className="w-full h-full object-contain"
-              />
-            </div>
+            <img
+              src={typeof book.coverImage === 'string' ? book.coverImage : urlFor(book.coverImage).width(600).url()}
+              alt={book.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
           ) : (
-            <BookCoverPlaceholder title={book.title} classType={book.classType} />
+            <div className="w-full h-full flex items-center justify-center bg-gray-50 group-hover:scale-105 transition-transform duration-500">
+              <BookCoverPlaceholder title={book.title} classType={book.classType} isLarge={true} />
+            </div>
           )}
         </Link>
 
         {/* Availability Badge */}
         {!book.availability && (
-          <div className="absolute top-2 right-4">
+          <div className="absolute top-16 right-4 z-20">
             <span className="px-3 py-1 text-[10px] font-bold rounded-full bg-red-500 text-white shadow-md">
               Out of Stock
             </span>

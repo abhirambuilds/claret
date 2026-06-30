@@ -16,10 +16,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4 group">
-              <img 
-                src={logoImg} 
-                className="w-10 h-10 object-cover rounded-xl border border-white/10 group-hover:scale-105 transition-transform duration-300" 
-                alt={`${settings.publicationName || 'Claret'} Logo`} 
+              <img
+                src={logoImg}
+                className="w-10 h-10 object-cover rounded-xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
+                alt={`${settings.publicationName || 'Claret'} Logo`}
               />
               <div className="flex flex-col">
                 <span className="text-xl font-bold font-display text-white group-hover:text-blue-300 transition-colors duration-200">
@@ -31,7 +31,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Your trusted source for high-quality educational guide books for 11th class and 12th class. Empowering academic excellence.
+              Your trusted source for high-quality educational guide books for 11th and 12th classes. Empowering academic excellence.
             </p>
             <a
               href={whatsappLink}
@@ -53,7 +53,7 @@ export default function Footer() {
                 <Link to="/" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Home</Link>
               </li>
               <li>
-                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 11th & 12th Books</Link>
+                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">11th & 12th Books</Link>
               </li>
             </ul>
           </div>

@@ -38,11 +38,11 @@ export default function WhatsAppModal({ book, isOpen, onClose }: WhatsAppModalPr
     if (!validate()) return;
 
     const totalPrice = book.price * formData.copies;
-    const authorNames = book.authors && book.authors.length > 0 
-      ? book.authors.map(a => a.name).join(', ') 
+    const authorNames = book.authors && book.authors.length > 0
+      ? book.authors.map(a => a.name).join(', ')
       : 'N/A';
 
-    const cleanNumber = (settings?.whatsappNumber || '8331823668').replace(/\D/g, '');
+    const cleanNumber = (settings?.whatsappNumber || '8056183036').replace(/\D/g, '');
 
     const message = `New Book Order - ${settings?.publicationName || 'Claret Publications'}
 
@@ -129,9 +129,8 @@ Please confirm availability and delivery details. Thank you!`;
                 type="text"
                 value={formData.firstName}
                 onChange={(e) => handleChange('firstName', e.target.value)}
-                className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${
-                  errors.firstName ? 'border-red-300 bg-red-50' : 'border-gray-200'
-                }`}
+                className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${errors.firstName ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                  }`}
                 placeholder="John"
                 id="order-firstName"
               />
@@ -143,9 +142,8 @@ Please confirm availability and delivery details. Thank you!`;
                 type="text"
                 value={formData.lastName}
                 onChange={(e) => handleChange('lastName', e.target.value)}
-                className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${
-                  errors.lastName ? 'border-red-300 bg-red-50' : 'border-gray-200'
-                }`}
+                className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${errors.lastName ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                  }`}
                 placeholder="Doe"
                 id="order-lastName"
               />
@@ -159,9 +157,8 @@ Please confirm availability and delivery details. Thank you!`;
               type="tel"
               value={formData.phone}
               onChange={(e) => handleChange('phone', e.target.value)}
-              className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${
-                errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'
-              }`}
+              className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${errors.phone ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                }`}
               placeholder="9876543210"
               id="order-phone"
             />
@@ -174,9 +171,8 @@ Please confirm availability and delivery details. Thank you!`;
               value={formData.address}
               onChange={(e) => handleChange('address', e.target.value)}
               rows={3}
-              className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all resize-none ${
-                errors.address ? 'border-red-300 bg-red-50' : 'border-gray-200'
-              }`}
+              className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all resize-none ${errors.address ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                }`}
               placeholder="Enter your full delivery address"
               id="order-address"
             />
@@ -191,9 +187,8 @@ Please confirm availability and delivery details. Thank you!`;
               max={100}
               value={formData.copies}
               onChange={(e) => handleChange('copies', parseInt(e.target.value) || 1)}
-              className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${
-                errors.copies ? 'border-red-300 bg-red-50' : 'border-gray-200'
-              }`}
+              className={`w-full px-3 py-2.5 border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#007AFF]/30 focus:border-[#007AFF] transition-all ${errors.copies ? 'border-red-300 bg-red-50' : 'border-gray-200'
+                }`}
               id="order-copies"
             />
             {errors.copies && <p className="text-xs text-red-500 mt-1">{errors.copies}</p>}

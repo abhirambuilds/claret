@@ -124,24 +124,24 @@ export default function BookDetailPage() {
           {/* Left: Book cover and interactive gallery */}
           <div className="lg:col-span-3">
             <div className="sticky top-24">
-              <div className="rounded-3xl overflow-hidden shadow-xl border border-gray-200 bg-white flex items-center justify-center p-4 sm:p-6 relative group cursor-zoom-in">
+              <div className="rounded-[2.5rem] shadow-xl border border-gray-100 bg-white p-8 sm:p-12 relative group cursor-zoom-in flex items-center justify-center min-h-[300px]">
                 {book.coverImage ? (
-                  <div className="w-full flex items-center justify-center relative">
+                  <>
                     <img 
                       src={typeof (allImages[activeIndex] || book.coverImage) === 'string' ? (allImages[activeIndex] || book.coverImage) : urlFor(allImages[activeIndex] || book.coverImage).width(1200).url()} 
                       alt={book.title} 
-                      className="w-full h-auto max-h-[70vh] object-contain animate-fade-in cursor-pointer select-none rounded-lg border border-gray-100 shadow-sm bg-white" 
+                      className="w-full h-auto max-h-[60vh] object-contain animate-fade-in cursor-pointer select-none drop-shadow-md rounded-sm" 
                       onClick={() => setIsLightboxOpen(true)}
                     />
                     <div 
                       onClick={() => setIsLightboxOpen(true)}
-                      className="absolute bottom-3 right-3 bg-white/95 hover:bg-white text-[#0A2540] hover:text-[#007AFF] shadow-lg px-3 py-2 rounded-xl transition-all duration-300 cursor-pointer opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 border border-gray-100/50 flex items-center gap-1.5"
+                      className="absolute bottom-6 right-6 bg-white/95 hover:bg-white text-[#0A2540] hover:text-[#007AFF] shadow-lg px-3 py-2 rounded-xl transition-all duration-300 cursor-pointer opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 border border-gray-100/50 flex items-center gap-1.5"
                     >
                       <ZoomIn className="w-4 h-4" />
                       <span className="text-[10px] font-extrabold uppercase tracking-wider">Click to Zoom</span>
                     </div>
 
-                    {/* Left and Right navigation arrows (like Amazon) */}
+                    {/* Left and Right navigation arrows */}
                     {allImages.length > 1 && (
                       <>
                         <button
@@ -150,7 +150,7 @@ export default function BookDetailPage() {
                             e.stopPropagation();
                             setActiveIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
                           }}
-                          className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#0A2540] hover:text-[#007AFF] hover:scale-105 shadow-md p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100 border border-gray-100 flex items-center justify-center cursor-pointer"
+                          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#0A2540] hover:text-[#007AFF] hover:scale-105 shadow-md p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100 border border-gray-100 flex items-center justify-center cursor-pointer"
                           aria-label="Previous image"
                         >
                           <ChevronLeft className="w-5 h-5" />
@@ -161,14 +161,14 @@ export default function BookDetailPage() {
                             e.stopPropagation();
                             setActiveIndex((prev) => (prev + 1) % allImages.length);
                           }}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#0A2540] hover:text-[#007AFF] hover:scale-105 shadow-md p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100 border border-gray-100 flex items-center justify-center cursor-pointer"
+                          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-[#0A2540] hover:text-[#007AFF] hover:scale-105 shadow-md p-2 rounded-full transition-all duration-200 opacity-0 group-hover:opacity-100 focus:opacity-100 border border-gray-100 flex items-center justify-center cursor-pointer"
                           aria-label="Next image"
                         >
                           <ChevronRight className="w-5 h-5" />
                         </button>
                       </>
                     )}
-                  </div>
+                  </>
                 ) : (
                   <BookCoverPlaceholder title={book.title} classType={book.classType} isLarge={true} />
                 )}

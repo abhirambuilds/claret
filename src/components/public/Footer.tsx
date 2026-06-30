@@ -31,7 +31,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Your trusted source for high-quality educational guide books for Class 10 and Intermediate students. Empowering academic excellence.
+              Your trusted source for high-quality educational guide books for 11th class. Empowering academic excellence.
             </p>
             <a
               href={whatsappLink}
@@ -53,10 +53,7 @@ export default function Footer() {
                 <Link to="/" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Home</Link>
               </li>
               <li>
-                <Link to="/class-10" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 10 Books</Link>
-              </li>
-              <li>
-                <Link to="/inter" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Intermediate Books</Link>
+                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 11th Books</Link>
               </li>
             </ul>
           </div>
@@ -85,13 +82,8 @@ export default function Footer() {
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Categories</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/class-10" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
-                  📘 Class 10 Guide Books
-                </Link>
-              </li>
-              <li>
-                <Link to="/inter" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
-                  📗 Intermediate Guide Books
+                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
+                  📗 Class 11th Guide Books
                 </Link>
               </li>
             </ul>

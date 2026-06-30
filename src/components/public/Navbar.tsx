@@ -28,7 +28,7 @@ export default function Navbar() {
           <Link to="/" className="flex items-center gap-3 group" id="nav-logo">
             <img
               src={logoImg}
-              className="w-10 h-10 sm:w-11 sm:h-11 object-cover rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300"
+              className="w-10 h-10 sm:w-11 sm:h-11 object-contain bg-white p-1 rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300"
               alt={`${settings.publicationName || 'Claret'} Logo`}
             />
             <div className="flex flex-col">

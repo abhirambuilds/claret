@@ -1,0 +1,288 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Outfit', 'Inter', system-ui, sans-serif;
+
+  --color-primary-50: #f0f4f9;
+  --color-primary-100: #d9e3f1;
+  --color-primary-200: #b3c7e3;
+  --color-primary-300: #8daad5;
+  --color-primary-400: #678ec7;
+  --color-primary-500: #0055a2;
+  --color-primary-600: #004482;
+  --color-primary-700: #003361;
+  --color-primary-800: #0A2540; /* Deep Navy Header */
+  --color-primary-900: #051220;
+  --color-primary-950: #030910;
+
+  --color-blue-500: #007AFF; /* CTA Apple Blue */
+  --color-blue-600: #0066cc;
+
+  --color-bg-main: #F5F5F7; /* Soft White Background */
+  --color-card-main: #FFFFFF; /* Pure White Cards */
+  
+  --color-text-main: #1D1D1F; /* Primary Text */
+  --color-text-muted: #6E6E73; /* Secondary Text */
+
+  --color-emerald-500: #10B981; /* Success / Highlights */
+  
+  --color-claret: #007AFF; 
+  --color-claret-light: #3399ff;
+  --color-claret-dark: #0055b3;
+
+  --color-success: #10B981;
+  --color-warning: #eab308;
+
+  /* Subject/Theme Colors */
+  --color-subject-math: #007AFF;
+  --color-subject-physics: #10B981;
+  --color-subject-chemistry: #8B5CF6;
+  --color-subject-english: #34495E;
+  --color-subject-accounts: #F2994A;
+}
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-text-main);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-float {
+  animation: floating 4s ease-in-out infinite;
+}
+
+/* Staggered children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* Premium Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.glass-dark {
+  background: rgba(10, 37, 64, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #1D1D1F 0%, #0055a2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #007AFF 0%, #0055a2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 3D Book Shelf / Stand Mockups */
+.book-pedestal {
+  background: radial-gradient(circle, #ffffff 30%, #e2e8f0 100%);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 
+              inset 0 -8px 16px rgba(0,0,0,0.05),
+              inset 0 4px 6px rgba(255,255,255,0.8);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transform: rotateX(15deg);
+  transform-style: preserve-3d;
+}
+
+/* Pure CSS 3D Book Component */
+.book-3d-wrap {
+  perspective: 1200px;
+  position: relative;
+  display: inline-block;
+}
+
+.book-3d {
+  width: 130px;
+  height: 190px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateY(-25deg) rotateX(8deg);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.book-3d::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 5%;
+  width: 90%;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.25);
+  filter: blur(8px);
+  transform: rotateX(85deg) translateZ(-20px);
+  pointer-events: none;
+  transition: filter 0.6s, opacity 0.6s, transform 0.6s;
+}
+
+.book-3d:hover {
+  transform: rotateY(-8deg) rotateX(4deg) translateY(-14px);
+}
+
+.book-3d:hover::after {
+  filter: blur(12px);
+  opacity: 0.75;
+  transform: rotateX(85deg) translateZ(-30px) scale(1.05);
+}
+
+/* 3D Sides */
+.book-3d-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: translateZ(9px);
+  z-index: 2;
+  border-radius: 1px 3px 3px 1px;
+  overflow: hidden;
+  box-shadow: inset -3px 0 10px rgba(0,0,0,0.1), inset 3px 0 5px rgba(255,255,255,0.1);
+  background-color: #0A2540;
+}
+
+.book-3d-spine {
+  position: absolute;
+  width: 18px;
+  height: 100%;
+  left: 0;
+  transform: rotateY(-90deg) translateZ(9px);
+  transform-origin: left;
+  z-index: 3;
+  border-radius: 3px 1px 1px 3px;
+  box-shadow: inset -2px 0 5px rgba(0,0,0,0.2), inset 2px 0 5px rgba(255,255,255,0.1);
+}
+
+.book-3d-pages {
+  position: absolute;
+  width: 100%;
+  height: 98%;
+  top: 1%;
+  left: 0;
+  background: #FAF8F5;
+  transform: rotateY(90deg) translateZ(120px);
+  z-index: 1;
+  border-radius: 0 2px 2px 0;
+  background-image: repeating-linear-gradient(90deg, #FAF8F5, #FAF8F5 2px, #E8E6E1 3px, #FAF8F5 4px);
+  box-shadow: inset 5px 0 10px rgba(0,0,0,0.05);
+}
+
+/* Subject-specific gradients for spine/covers */
+.math-spine { background: linear-gradient(to bottom, #1d4ed8, #0055a2); }
+.physics-spine { background: linear-gradient(to bottom, #059669, #0f766e); }
+.chemistry-spine { background: linear-gradient(to bottom, #7c3aed, #5b21b6); }
+.english-spine { background: linear-gradient(to bottom, #34495e, #1e293b); }
+.accounts-spine { background: linear-gradient(to bottom, #d97706, #b45309); }
+
+/* Shimmer pulse effect */
+.shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Book Cover Placeholder style */
+.book-cover-gradient {
+  background: linear-gradient(135deg, #0A2540 0%, #1A365D 50%, #2A4365 100%);
+}

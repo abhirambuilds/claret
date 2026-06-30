@@ -1,7 +1,7 @@
 import { Book, SiteSettings } from '../types';
 
 export const defaultSettings: SiteSettings = {
-  whatsappNumber: '918056183036',
+  whatsappNumber: '919994292586',
   publicationName: 'Claret Publications',
   contactEmail: 'info@claretpublications.com',
   address: '',

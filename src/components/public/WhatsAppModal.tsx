@@ -42,7 +42,7 @@ export default function WhatsAppModal({ book, isOpen, onClose }: WhatsAppModalPr
       ? book.authors.map(a => a.name).join(', ')
       : 'N/A';
 
-    const cleanNumber = (settings?.whatsappNumber || '8056183036').replace(/\D/g, '');
+    const cleanNumber = (settings?.whatsappNumber || '9994292586').replace(/\D/g, '');
 
     const message = `New Book Order - ${settings?.publicationName || 'Claret Publications'}
 

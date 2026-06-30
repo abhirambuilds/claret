@@ -27,9 +27,9 @@ export default function BookDetailPage() {
 
   const allImages = book
     ? [
-        ...(book.coverImage ? [book.coverImage] : []),
-        ...(book.images || [])
-      ]
+      ...(book.coverImage ? [book.coverImage] : []),
+      ...(book.images || [])
+    ]
     : [];
 
   // Escape & arrow keys listener to close modal and switch images
@@ -133,13 +133,13 @@ export default function BookDetailPage() {
               <div className="relative group cursor-zoom-in flex items-center justify-center w-full">
                 {book.coverImage ? (
                   <>
-                    <img 
+                    <img
                       src={getUncroppedImageUrl(allImages[activeIndex] || book.coverImage, 1200)}
-                      alt={book.title} 
-                      className="w-full h-auto max-h-[70vh] object-contain animate-fade-in cursor-pointer select-none drop-shadow-xl rounded-xl border border-gray-200/60 bg-white" 
+                      alt={book.title}
+                      className="w-full h-auto max-h-[70vh] object-contain animate-fade-in cursor-pointer select-none drop-shadow-xl rounded-xl border border-gray-200/60 bg-white"
                       onClick={() => setIsLightboxOpen(true)}
                     />
-                    <div 
+                    <div
                       onClick={() => setIsLightboxOpen(true)}
                       className="absolute bottom-6 right-6 bg-white/95 hover:bg-white text-[#0A2540] hover:text-[#007AFF] shadow-lg px-3 py-2 rounded-xl transition-all duration-300 cursor-pointer opacity-0 group-hover:opacity-100 scale-95 group-hover:scale-100 border border-gray-100/50 flex items-center gap-1.5"
                     >
@@ -186,14 +186,13 @@ export default function BookDetailPage() {
                   {/* Cover Thumbnail */}
                   <button
                     onClick={() => setActiveIndex(0)}
-                    className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 bg-white p-1 transition-all duration-200 ${
-                      activeIndex === 0 ? 'border-[#007AFF] shadow-md scale-[1.05]' : 'border-gray-200 hover:border-gray-300'
-                    }`}
+                    className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 bg-white p-1 transition-all duration-200 ${activeIndex === 0 ? 'border-[#007AFF] shadow-md scale-[1.05]' : 'border-gray-200 hover:border-gray-300'
+                      }`}
                   >
-                    <img 
-                      src={getUncroppedImageUrl(book.coverImage, 200)} 
-                      className="w-full h-full object-contain rounded-xl bg-gray-50/50" 
-                      alt="Book Cover Thumbnail" 
+                    <img
+                      src={getUncroppedImageUrl(book.coverImage, 200)}
+                      className="w-full h-full object-contain rounded-xl bg-gray-50/50"
+                      alt="Book Cover Thumbnail"
                     />
                   </button>
 
@@ -206,9 +205,8 @@ export default function BookDetailPage() {
                       <button
                         key={idx}
                         onClick={() => setActiveIndex(index)}
-                        className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 bg-white p-1 transition-all duration-200 ${
-                          isActive ? 'border-[#007AFF] shadow-md scale-[1.05]' : 'border-gray-200 hover:border-gray-300'
-                        }`}
+                        className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 bg-white p-1 transition-all duration-200 ${isActive ? 'border-[#007AFF] shadow-md scale-[1.05]' : 'border-gray-200 hover:border-gray-300'
+                          }`}
                       >
                         <img src={url} className="w-full h-full object-contain rounded-xl bg-gray-50/50" alt={`Book thumbnail ${idx + 1}`} />
                       </button>
@@ -222,11 +220,10 @@ export default function BookDetailPage() {
           {/* Center: Book info */}
           <div className="lg:col-span-5 animate-fade-in-up">
             {/* Category badge */}
-            <span className={`inline-flex px-3.5 py-1.5 text-xs font-bold rounded-full mb-4 shadow-sm ${
-              book.classType === 'Class 10'
-                ? 'bg-blue-50 text-blue-700 border border-blue-100'
-                : 'bg-emerald-50 text-emerald-700 border border-emerald-100'
-            }`}>
+            <span className={`inline-flex px-3.5 py-1.5 text-xs font-bold rounded-full mb-4 shadow-sm ${book.classType === 'Class 10'
+              ? 'bg-blue-50 text-blue-700 border border-blue-100'
+              : 'bg-emerald-50 text-emerald-700 border border-emerald-100'
+              }`}>
               {book.classType}
             </span>
 
@@ -292,8 +289,8 @@ export default function BookDetailPage() {
                     <div key={index} className="bg-white rounded-3xl border border-gray-100 p-5 shadow-sm">
                       <div className="flex items-start gap-4">
                         {author.profileImage ? (
-                          <img 
-                            src={typeof author.profileImage === 'string' ? author.profileImage : urlFor(author.profileImage).width(100).height(100).url()} 
+                          <img
+                            src={typeof author.profileImage === 'string' ? author.profileImage : urlFor(author.profileImage).width(100).height(100).url()}
                             alt={author.name}
                             className="w-12 h-12 rounded-2xl object-cover flex-shrink-0"
                           />
@@ -355,11 +352,10 @@ export default function BookDetailPage() {
                   <button
                     onClick={() => setIsModalOpen(true)}
                     disabled={!book.availability}
-                    className={`w-full flex items-center justify-center gap-2 px-6 py-4 font-bold rounded-2xl transition-all duration-200 text-sm shadow-lg ${
-                      book.availability
-                        ? 'bg-[#007AFF] hover:bg-blue-600 text-white shadow-blue-500/20 hover:scale-[1.02]'
-                        : 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
-                    }`}
+                    className={`w-full flex items-center justify-center gap-2 px-6 py-4 font-bold rounded-2xl transition-all duration-200 text-sm shadow-lg ${book.availability
+                      ? 'bg-[#007AFF] hover:bg-blue-600 text-white shadow-blue-500/20 hover:scale-[1.02]'
+                      : 'bg-gray-100 text-gray-400 cursor-not-allowed shadow-none'
+                      }`}
                     id="buy-now-btn"
                   >
                     <ShoppingCart className="w-4.5 h-4.5" />
@@ -425,10 +421,9 @@ export default function BookDetailPage() {
 
           {/* Center viewport */}
           <div className="flex-1 flex items-center justify-center p-4 min-h-0 relative">
-            <div 
-              className={`relative overflow-hidden max-w-4xl max-h-[70vh] w-full h-full bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 ${
-                isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
-              }`}
+            <div
+              className={`relative overflow-hidden max-w-4xl max-h-[70vh] w-full h-full bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 ${isZoomed ? 'cursor-zoom-out' : 'cursor-zoom-in'
+                }`}
               onMouseMove={handleMouseMove}
               onClick={() => setIsZoomed(!isZoomed)}
             >
@@ -483,9 +478,8 @@ export default function BookDetailPage() {
                     setActiveIndex(0);
                     setIsZoomed(false);
                   }}
-                  className={`w-14 h-18 rounded-lg overflow-hidden border-2 bg-black/30 p-0.5 transition-all duration-200 flex-shrink-0 ${
-                    activeIndex === 0 ? 'border-[#007AFF] scale-105 shadow-lg shadow-[#007AFF]/20' : 'border-white/20 hover:border-white/40'
-                  }`}
+                  className={`w-14 h-18 rounded-lg overflow-hidden border-2 bg-black/30 p-0.5 transition-all duration-200 flex-shrink-0 ${activeIndex === 0 ? 'border-[#007AFF] scale-105 shadow-lg shadow-[#007AFF]/20' : 'border-white/20 hover:border-white/40'
+                    }`}
                 >
                   <img
                     src={getUncroppedImageUrl(book.coverImage, 200)}
@@ -505,9 +499,8 @@ export default function BookDetailPage() {
                         setActiveIndex(index);
                         setIsZoomed(false);
                       }}
-                      className={`w-14 h-18 rounded-lg overflow-hidden border-2 bg-black/30 p-0.5 transition-all duration-200 flex-shrink-0 ${
-                        isActive ? 'border-[#007AFF] scale-105 shadow-lg shadow-[#007AFF]/20' : 'border-white/20 hover:border-white/40'
-                      }`}
+                      className={`w-14 h-18 rounded-lg overflow-hidden border-2 bg-black/30 p-0.5 transition-all duration-200 flex-shrink-0 ${isActive ? 'border-[#007AFF] scale-105 shadow-lg shadow-[#007AFF]/20' : 'border-white/20 hover:border-white/40'
+                        }`}
                     >
                       <img src={url} className="w-full h-full object-contain rounded bg-black/10" alt={`Thumbnail ${idx + 1}`} />
                     </button>

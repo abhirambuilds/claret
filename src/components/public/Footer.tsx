@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MessageCircle, Settings } from 'lucide-react';
+import { Phone, MessageCircle } from 'lucide-react';
 import { useSiteSettings } from '../../hooks/useSanity';
 import logoImg from '../../assets/logo.jpeg';
 
@@ -12,7 +12,7 @@ export default function Footer() {
     <footer className="bg-primary-950 text-white" id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main footer */}
-        <div className="py-12 sm:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+        <div className="py-12 sm:py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4 group">
@@ -31,7 +31,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
-              Your trusted source for high-quality educational guide books for 11th class. Empowering academic excellence.
+              Your trusted source for high-quality educational guide books for 11th class and 12th class. Empowering academic excellence.
             </p>
             <a
               href={whatsappLink}
@@ -55,6 +55,9 @@ export default function Footer() {
               <li>
                 <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 11th Books</Link>
               </li>
+              <li>
+                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">Class 12th Books</Link>
+              </li>
             </ul>
           </div>
 
@@ -62,12 +65,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Contact Us</h3>
             <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <Mail className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
-                <a href={`mailto:${settings.contactEmail}`} className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
-                  {settings.contactEmail}
-                </a>
-              </li>
+
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
                 <a href={`tel:+${settings.whatsappNumber}`} className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
@@ -77,17 +75,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Categories */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-gray-300 mb-4">Categories</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/books" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
-                  📗 Class 11th Guide Books
-                </Link>
-              </li>
-            </ul>
-          </div>
+
         </div>
 
         {/* Bottom bar */}
@@ -95,14 +83,7 @@ export default function Footer() {
           <p className="text-gray-500 text-xs text-center sm:text-left">
             © {new Date().getFullYear()} {settings.publicationName}. All rights reserved.
           </p>
-          <Link
-            to="/admin/login"
-            className="text-gray-600 hover:text-gray-400 text-xs transition-colors duration-200 flex items-center gap-1"
-            id="footer-admin-link"
-          >
-            <Settings className="w-3 h-3" />
-            Admin
-          </Link>
+
         </div>
       </div>
     </footer>

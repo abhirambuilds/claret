@@ -4,6 +4,12 @@ import { Book } from '../../types';
 import BookCoverPlaceholder from './BookCoverPlaceholder';
 import { urlFor } from '../../lib/imageUrl';
 
+const getUncroppedImageUrl = (image: any, width: number) => {
+  if (!image) return '';
+  if (typeof image === 'string') return image;
+  return urlFor(image.asset || image).width(width).url();
+};
+
 interface BookCardProps {
   book: Book;
 }
@@ -78,13 +84,13 @@ export default function BookCard({ book }: BookCardProps) {
       </div>
 
       {/* Book Cover Container */}
-      <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] overflow-hidden bg-gray-100 flex-shrink-0">
+      <div className="relative w-full aspect-[3/4] sm:aspect-[4/5] overflow-hidden bg-white flex-shrink-0">
         <Link to={`/book/${book.id}`} className="w-full h-full block">
           {book.coverImage ? (
             <img
-              src={typeof book.coverImage === 'string' ? book.coverImage : urlFor(book.coverImage).width(600).url()}
+              src={typeof book.coverImage === 'string' ? book.coverImage : getUncroppedImageUrl(book.coverImage, 600)}
               alt={book.title}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-contain bg-white group-hover:scale-105 transition-transform duration-500"
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-gray-50 group-hover:scale-105 transition-transform duration-500">

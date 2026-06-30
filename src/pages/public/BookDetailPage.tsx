@@ -176,17 +176,17 @@ export default function BookDetailPage() {
 
               {/* Thumbnails grid */}
               {allImages.length > 1 && (
-                <div className="grid grid-cols-5 gap-2 mt-4 animate-fade-in-up">
+                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6 animate-fade-in-up">
                   {/* Cover Thumbnail */}
                   <button
                     onClick={() => setActiveIndex(0)}
-                    className={`aspect-square rounded-xl overflow-hidden border-2 bg-white p-0.5 transition-all duration-200 ${
-                      activeIndex === 0 ? 'border-[#007AFF] shadow-md scale-[1.02]' : 'border-gray-200/60 hover:border-gray-300'
+                    className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 bg-white p-1 transition-all duration-200 ${
+                      activeIndex === 0 ? 'border-[#007AFF] shadow-md scale-[1.05]' : 'border-gray-200 hover:border-gray-300'
                     }`}
                   >
                     <img 
                       src={typeof book.coverImage === 'string' ? book.coverImage : urlFor(book.coverImage).width(150).url()} 
-                      className="w-full h-full object-contain rounded-lg bg-gray-50" 
+                      className="w-full h-full object-contain rounded-xl bg-gray-50/50" 
                       alt="Book Cover Thumbnail" 
                     />
                   </button>
@@ -200,11 +200,11 @@ export default function BookDetailPage() {
                       <button
                         key={idx}
                         onClick={() => setActiveIndex(index)}
-                        className={`aspect-square rounded-xl overflow-hidden border-2 bg-white p-0.5 transition-all duration-200 ${
-                          isActive ? 'border-[#007AFF] shadow-md scale-[1.02]' : 'border-gray-200/60 hover:border-gray-300'
+                        className={`w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 rounded-2xl overflow-hidden border-2 bg-white p-1 transition-all duration-200 ${
+                          isActive ? 'border-[#007AFF] shadow-md scale-[1.05]' : 'border-gray-200 hover:border-gray-300'
                         }`}
                       >
-                        <img src={url} className="w-full h-full object-contain rounded-lg bg-gray-50" alt={`Book thumbnail ${idx + 1}`} />
+                        <img src={url} className="w-full h-full object-contain rounded-xl bg-gray-50/50" alt={`Book thumbnail ${idx + 1}`} />
                       </button>
                     );
                   })}

@@ -10,6 +10,12 @@ import WhatsAppModal from '../../components/public/WhatsAppModal';
 import { useBook } from '../../hooks/useSanity';
 import { urlFor } from '../../lib/imageUrl';
 
+const getUncroppedImageUrl = (image: any, width: number) => {
+  if (!image) return '';
+  if (typeof image === 'string') return image;
+  return urlFor(image.asset || image).width(width).url();
+};
+
 export default function BookDetailPage() {
   const { id } = useParams<{ id: string }>();
   const { book, loading } = useBook(id);
@@ -124,13 +130,13 @@ export default function BookDetailPage() {
           {/* Left: Book cover and interactive gallery */}
           <div className="lg:col-span-3">
             <div className="sticky top-24">
-              <div className="rounded-[2.5rem] shadow-xl border border-gray-100 bg-white p-8 sm:p-12 relative group cursor-zoom-in flex items-center justify-center min-h-[300px]">
+              <div className="relative group cursor-zoom-in flex items-center justify-center w-full">
                 {book.coverImage ? (
                   <>
                     <img 
-                      src={typeof (allImages[activeIndex] || book.coverImage) === 'string' ? (allImages[activeIndex] || book.coverImage) : urlFor(allImages[activeIndex] || book.coverImage).width(1200).url()} 
+                      src={getUncroppedImageUrl(allImages[activeIndex] || book.coverImage, 1200)}
                       alt={book.title} 
-                      className="w-full h-auto max-h-[60vh] object-contain animate-fade-in cursor-pointer select-none drop-shadow-md rounded-sm" 
+                      className="w-full h-auto max-h-[70vh] object-contain animate-fade-in cursor-pointer select-none drop-shadow-xl rounded-xl border border-gray-200/60 bg-white" 
                       onClick={() => setIsLightboxOpen(true)}
                     />
                     <div 
@@ -185,7 +191,7 @@ export default function BookDetailPage() {
                     }`}
                   >
                     <img 
-                      src={typeof book.coverImage === 'string' ? book.coverImage : urlFor(book.coverImage).width(150).url()} 
+                      src={getUncroppedImageUrl(book.coverImage, 200)} 
                       className="w-full h-full object-contain rounded-xl bg-gray-50/50" 
                       alt="Book Cover Thumbnail" 
                     />
@@ -195,7 +201,7 @@ export default function BookDetailPage() {
                   {book.images && book.images.map((img: any, idx: number) => {
                     const index = idx + 1;
                     const isActive = activeIndex === index;
-                    const url = typeof img === 'string' ? img : urlFor(img).width(150).url();
+                    const url = getUncroppedImageUrl(img, 200);
                     return (
                       <button
                         key={idx}
@@ -427,7 +433,7 @@ export default function BookDetailPage() {
               onClick={() => setIsZoomed(!isZoomed)}
             >
               <img
-                src={typeof (allImages[activeIndex] || book.coverImage) === 'string' ? (allImages[activeIndex] || book.coverImage) : urlFor(allImages[activeIndex] || book.coverImage).width(1200).url()}
+                src={getUncroppedImageUrl(allImages[activeIndex] || book.coverImage, 1800)}
                 alt={book.title}
                 className="max-w-full max-h-full object-contain pointer-events-none select-none"
                 style={{
@@ -482,7 +488,7 @@ export default function BookDetailPage() {
                   }`}
                 >
                   <img
-                    src={typeof book.coverImage === 'string' ? book.coverImage : urlFor(book.coverImage).width(100).url()}
+                    src={getUncroppedImageUrl(book.coverImage, 200)}
                     className="w-full h-full object-contain rounded bg-black/10"
                     alt="Cover thumbnail"
                   />
@@ -491,7 +497,7 @@ export default function BookDetailPage() {
                 {book.images && book.images.map((img: any, idx: number) => {
                   const index = idx + 1;
                   const isActive = activeIndex === index;
-                  const url = typeof img === 'string' ? img : urlFor(img).width(100).url();
+                  const url = getUncroppedImageUrl(img, 200);
                   return (
                     <button
                       key={idx}

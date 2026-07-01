@@ -77,7 +77,7 @@ export default function AuthorPage() {
         <div className="mb-16 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
           <div className="flex items-center gap-2 mb-6">
             <div className="w-2 h-5 bg-[#007AFF] rounded-full" />
-            <h2 className="text-xl font-extrabold text-[#1D1D1F] font-display">Chief Editor</h2>
+            <h2 className="text-xl font-extrabold text-[#1D1D1F] font-display">Editor</h2>
           </div>
           
           <div className="bg-white rounded-3xl border border-gray-100 p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow duration-300">

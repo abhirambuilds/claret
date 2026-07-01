@@ -62,7 +62,7 @@ export default function Navbar() {
               className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
               id="nav-author"
             >
-              Author
+              Authors
             </Link>
 
             {/* Search toggle */}
@@ -162,9 +162,10 @@ export default function Navbar() {
             <Link
               to="/author"
               onClick={() => setIsMenuOpen(false)}
-              className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white rounded-lg hover:bg-white/5 transition-all duration-200"
+              className="block px-4 py-3 text-base font-medium text-white/80 hover:text-white hover:bg-white/5 rounded-xl transition-colors"
+              id="nav-author-mobile"
             >
-              Author
+              Authors
             </Link>
             <div className="pt-2 pb-1">
               <Link

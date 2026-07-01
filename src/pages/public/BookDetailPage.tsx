@@ -258,7 +258,7 @@ export default function BookDetailPage() {
             {/* Editor details */}
             {book.editor && (
               <div className="mb-8">
-                <h2 className="text-lg font-bold text-[#1D1D1F] mb-4 font-display">Editor Details</h2>
+                <h2 className="text-lg font-bold text-[#1D1D1F] mb-4 font-display">Editor</h2>
                 <div className="bg-white rounded-3xl border border-gray-100 p-5 shadow-sm">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center flex-shrink-0 border border-blue-100">

@@ -25,11 +25,18 @@ export default function AdminNewBookPage() {
       // 2. Prepare Editor creation promise
       let editorPromise: Promise<any> = Promise.resolve(null);
       if (data.editor && data.editor.name) {
-        editorPromise = client.create({ _type: 'author', ...data.editor });
+        if ((data.editor as any)._id) {
+          editorPromise = client.createOrReplace({ _type: 'author', ...data.editor, _id: (data.editor as any)._id as string });
+        } else {
+          editorPromise = client.create({ _type: 'author', ...data.editor });
+        }
       }
 
       // 3. Prepare Authors creation promises
       const authorPromises: Promise<any>[] = (data.authors || []).map(author => {
+        if ((author as any)._id) {
+          return client.createOrReplace({ _type: 'author', ...author, _id: (author as any)._id as string });
+        }
         return client.create({ _type: 'author', ...author });
       });
 
